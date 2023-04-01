@@ -1,0 +1,1 @@
+{'detections': 'No object detected'}

@@ -1,0 +1,1 @@
+{'detections': {'labels': [{'labels': 'person', 'confidence': 0.9996840357780457, 'X': 10, 'Y': 7, 'Width': 816, 'Height': 1033}, {'labels': 'cell phone', 'confidence': 0.9487336277961731, 'X': 396, 'Y': 530, 'Width': 371, 'Height': 139}]}}
