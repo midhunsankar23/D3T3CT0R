@@ -1,0 +1,1 @@
+{'detections': {'labels': [{'labels': 'cat', 'confidence': 0.7618740200996399, 'X': 41, 'Y': 273, 'Width': 981, 'Height': 1464}]}}

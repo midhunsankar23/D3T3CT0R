@@ -1,0 +1,1 @@
+{'detections': {'labels': [{'labels': 'horse', 'confidence': 0.9943990707397461, 'X': 4, 'Y': 197, 'Width': 308, 'Height': 213}, {'labels': 'horse', 'confidence': 0.9895545840263367, 'X': 439, 'Y': 209, 'Width': 156, 'Height': 142}, {'labels': 'horse', 'confidence': 0.9552628397941589, 'X': 236, 'Y': 180, 'Width': 215, 'Height': 167}]}}

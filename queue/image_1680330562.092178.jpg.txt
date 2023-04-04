@@ -1,1 +1,0 @@
-{'detections': {'labels': [{'labels': 'parking meter', 'confidence': 0.636497437953949, 'X': 536, 'Y': 210, 'Width': 390, 'Height': 862}]}}

@@ -10,8 +10,9 @@ from pymongo import MongoClient
 
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='ui')
 UPLOAD_FOLDER = os.path.abspath('uploads')
+UI_FOLDER = os.path.abspath('ui')
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 app.secret_key = "secret key"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -30,7 +31,7 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET'])
 def home():
-    return send_from_directory('ui', 'index.html')
+    return send_from_directory('ui', 'upload.html')
 
 @app.route('/upload', methods=['GET'])
 def upload():
@@ -63,11 +64,23 @@ def insert_image():
         return redirect(request.url)
 
 
+@app.route('/db')
+def index():
+    # retrieve data from the database
+    data = []
+    for doc in collection.find():
+        data.append(doc)
+
+    # render HTML template with data
+    return render_template('processed.html', data=data)
+
+
+
 if __name__ == '__main__':
     from argparse import ArgumentParser
     parser = ArgumentParser()
     parser.add_argument('-p', '--port', type=int, default=5000)
     args = parser.parse_args()
     port = args.port
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='0.0.0.0', port=80, debug=True)
 

@@ -1,1 +1,0 @@
-{'detections': {'labels': [{'labels': 'bird', 'confidence': 0.9763588905334473, 'X': 117, 'Y': 88, 'Width': 512, 'Height': 357}]}}

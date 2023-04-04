@@ -1,0 +1,1 @@
+{'detections': {'labels': [{'labels': 'giraffe', 'confidence': 0.9975883960723877, 'X': 152, 'Y': 48, 'Width': 287, 'Height': 385}]}}

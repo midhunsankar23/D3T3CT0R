@@ -1,0 +1,1 @@
+{'detections': {'labels': [{'labels': 'chair', 'confidence': 0.5667175650596619, 'X': 89, 'Y': 136, 'Width': 840, 'Height': 899}]}}

@@ -1,1 +1,0 @@
-{'detections': {'labels': [{'labels': 'zebra', 'confidence': 0.9995683431625366, 'X': 5, 'Y': 11, 'Width': 291, 'Height': 142}]}}

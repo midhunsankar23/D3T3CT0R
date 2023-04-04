@@ -13,9 +13,9 @@ connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost')
 channel = connection.channel()
 channel.queue_declare(queue='image_queue')
 
-# client = MongoClient('localhost', 27017)
-# db = client['image_labels']
-# collection = db['labels']
+client = MongoClient('localhost', 27017)
+db = client['image_labels']
+collection = db['labels']
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -23,14 +23,20 @@ def allowed_file(filename):
 def process_image(ch, method, properties, body):
     print("Received an image from the queue")
     filename = secure_filename('image_' + str(time.time()) + '.jpg')
+    print(filename)
     with open(os.path.join(UPLOAD_FOLDER, filename), 'wb') as f:
         f.write(body)
     print("Saved the image to disk as", filename)
     img_path = UPLOAD_FOLDER + '/' + filename
     results = detectObjects(img_path)
+    # labels = [line.decode('utf-8').strip() for line in result.stdout.splitlines()]
+    # with open(os.path.join(UPLOAD_FOLDER, filename + '.txt'), 'w') as f:
+    #     f.write('\n'.join(labels))
     with open(os.path.join(UPLOAD_FOLDER, filename + '.txt'), 'w') as f:
         f.write(str(results))
     print("Detected the following labels:", results)
+    label_data = {'image_name': filename, 'labels': results}
+    collection.insert_one(label_data)
     print("Uploaded the label data to the database")
     ch.basic_ack(delivery_tag=method.delivery_tag)
     print("Acknowledged the message")

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Labels</title>
+    <style>
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px;
+            background-color: #006699;
+            color: white;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Image Name</th>
+                <th>Labels</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doc in data %}
+            <tr>
+                <td>{{ doc['image_name'] }}</td>
+                <td>{{ doc['labels'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
