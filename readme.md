@@ -4,4 +4,4 @@ With this system, users can effortlessly upload images through a user-friendly w
 
 The system seamlessly integrates with MongoDB, a robust and scalable database, to store the processed image labels. This enables easy retrieval and management of labeled image data for further analysis or reporting purposes. The user interface of the system is thoughtfully designed, providing an intuitive and visually appealing experience for users to upload images and view the associated labels effortlessly.
 
-yolo-weights.cfg missing
+yolov3.weights missing
